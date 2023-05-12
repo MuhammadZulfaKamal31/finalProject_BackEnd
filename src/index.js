@@ -1,8 +1,6 @@
 // require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const db = require('../src/config/Database')
-const ReplyComment = require('../src/model/ReplyComment')
 
 
 const router = require('./routes/router');
@@ -10,7 +8,6 @@ const router = require('./routes/router');
 const app = express();
 
 try {
-    ReplyComment.sync()
     console.log("Database Connected");
 } catch (error) {
     console.error(error);
