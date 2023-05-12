@@ -18,7 +18,9 @@ const Users = db.define('users', {
         allowNull: false
     },
     avatar: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        defaultValue: 'user.png',
+        allowNull: false
     },
     password: {
         type: DataTypes.STRING,
