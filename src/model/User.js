@@ -1,4 +1,4 @@
-const db = require('../config/Database')
+const db = require('../config/Database.js')
 const { Sequelize } = require('sequelize')
 
 const { DataTypes } = Sequelize
@@ -13,8 +13,17 @@ const Users = db.define('users', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    refresh_token: {
+        type: DataTypes.STRING,
+    },
     avatar: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        defaultValue: 'user.png',
+        allowNull: false
     },
     password: {
         type: DataTypes.STRING,
