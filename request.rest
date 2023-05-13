@@ -1,5 +1,5 @@
-GET  http://localhost:5000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyLCJuYW1lIjoibXVoYW1tYWQgWnVsZmEgS2FtYWwiLCJlbWFpbCI6Inp1bGZha2FtYWwwMTlAZ21haWwuY29tIiwiaWF0IjoxNjgzMTEzODQ0LCJleHAiOjE2ODMxMTM5MDR9.4biaXoozuRzQw5SrY_Gn7nPOKtygd2pfO5jvq1PwN2Y
+GET  http://localhost:8800/users
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyLCJuYW1lIjoibXVoYW1tYWQgWnVsZmEgS2FtYWwiLCJlbWFpbCI6Inp1bGZha2FtYWwwMTlAZ21haWwuY29tIiwiaWF0IjoxNjgzMTEzODQ0LCJleHAiOjE2ODMxMTM5MDR9.4biaXoozuRzQw5SrY_Gn7nPOKtygd2pfO5jvq1PwN2Y
 
 ###
 POST http://localhost:8800/users
@@ -9,8 +9,7 @@ Content-Type: application/json
     "username": "Muhammad Zulfa Kamal",
     "email": "zulfakamal019@gmail.com",
     "password": "Agustus31",
-    "confPassword": "Agustus31",
-    "avatar":"3"
+    "confPassword": "Agustus31"
 }
 
 ###
