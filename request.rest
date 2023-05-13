@@ -1,5 +1,9 @@
 GET  http://localhost:8800/users
+<<<<<<< HEAD
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUxYzJhMjY0LTFlYzgtNGViYi05MTRmLWNjMTM2MzI1YjYxYiIsInVzZXJuYW1lIjoiTXVoYW1tYWQgWnVsZmEgS2FtYWwiLCJpYXQiOjE2ODM5OTEzMzksImV4cCI6MTY4Mzk5MTM5OX0.gaeJ1RXp7JQO2pVVaTNVYV4aPxDaNQn4tqO5xbjc3OQ
+=======
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyLCJuYW1lIjoibXVoYW1tYWQgWnVsZmEgS2FtYWwiLCJlbWFpbCI6Inp1bGZha2FtYWwwMTlAZ21haWwuY29tIiwiaWF0IjoxNjgzMTEzODQ0LCJleHAiOjE2ODMxMTM5MDR9.4biaXoozuRzQw5SrY_Gn7nPOKtygd2pfO5jvq1PwN2Y
+>>>>>>> 226aef06dc9b20e18679fbbf58affa18c55f2d0e
 
 ###
 POST http://localhost:8800/users
