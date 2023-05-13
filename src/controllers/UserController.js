@@ -1,7 +1,9 @@
-<<<<<<< HEAD
-const User = require('../model/User.js');
 
-//get all
+const User = require('../model/User.js');
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+
+//GET
 exports.getUsers = async (req, res) => {
     try {
         const users = await User.findAll({
@@ -13,35 +15,32 @@ exports.getUsers = async (req, res) => {
     }
 }
 
-//post data
+//POST
 exports.register = async (req, res) => {
     const { username, email, password, confPassword, avatar } = req.body;
-    if (password !== confPassword) { return res.status(400).json({ msg: "password dan confirm password tidak cocok" }); }
+    if (password !== confPassword) { return res.status(400).json({ msg: "password and confirm password do not match" }); }
+    //buat ngacak password
+    const salt = await bcrypt.genSalt();
+    const hashPassword = await bcrypt.hash(password, salt)
 
     try {
         await User.create({
             username: username,
             email: email,
             avatar: avatar,
-            password: password
+            password: hashPassword
         })
-        res.json({ msg: 'register berhasil' })
+        res.json({ msg: 'register success' })
     } catch (error) {
         console.log(error)
     }
 }
 
+//POST
 exports.Login = async (req, res) => {
 
-=======
-const User = require('../model/User')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-
-export const Login = async (req, res) => {
     try {
         const { username, password } = req.body
-
         const user = await User.findOne({ where: { username } })
         if (!user) return res.status(404).json('Username not found')
         const match = await bcrypt.compare(password, user.password)
@@ -51,5 +50,4 @@ export const Login = async (req, res) => {
     } catch (error) {
         res.status(500).json(error)
     }
->>>>>>> 5893f3e2ec949d8a7dff78a949f67e28e41420ae
 }

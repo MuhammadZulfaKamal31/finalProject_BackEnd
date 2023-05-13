@@ -22,6 +22,7 @@ const ReplyComment = db.define('reply_comment', {
 }, {
     freezeTableName: true
 })
+
 //otomatis nyari yg pk kalau misal gak di definisikan
 User.hasMany(ReplyComment, { foreignKey: 'userId' })
 ReplyComment.belongsTo(User, { foreignKey: 'userId', onDelete: 'CASCADE' })
