@@ -17,9 +17,6 @@ const Users = db.define('users', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    refresh_token: {
-        type: DataTypes.STRING,
-    },
     avatar: {
         type: DataTypes.STRING,
         defaultValue: 'user.png',
