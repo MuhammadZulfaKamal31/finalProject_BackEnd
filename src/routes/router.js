@@ -1,5 +1,10 @@
 const express = require('express');
+
 const { getUsers, register, Login, Logout } = require('../controllers/UserController')
+
+const { addFavorite, unFavorite } = require('../controllers/FavoriteController')
+
+
 
 const { verifyToken } = require('../middleware/VerifikasiToken.js')
 const { refreshToken } = require('../controllers/RefreshToken.js');
@@ -16,5 +21,8 @@ router.post('/logout', Logout)
 router.post('/comment', verifyToken, postComment)
 router.get('/comment/:media_type/:media_id', verifyToken, getComment)
 router.delete('/comment/:commentId', verifyToken, deleteComment)
+
+router.post('/addfavorite', verifyToken, addFavorite)
+
 
 module.exports = router;

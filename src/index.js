@@ -15,7 +15,6 @@ dotenv.config()
 const app = express();
 
 
-//agar semua datanya bisa di generate terus dan kalau force: true maka semua datanya bakal dihapus
 try {
     console.log("Database Connected");
 } catch (error) {
