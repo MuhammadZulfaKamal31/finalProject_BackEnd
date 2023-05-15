@@ -5,13 +5,20 @@ const jwt = require('jsonwebtoken')
 
 //GET
 exports.getUsers = async (req, res) => {
-    try {
-        const users = await User.findAll({
-            attributes: ['id', 'username', 'email', 'password']
-        })
-        res.json(users)
-    } catch (error) {
-        console.log(error)
+    const userId = req.userId
+
+    if (userId) {
+
+        try {
+            const users = await User.findByPk(userId, {
+                attributes: ['username', 'avatar', 'id']
+            })
+            res.status(200).json(users)
+        } catch (error) {
+            res.status(500).json(error)
+        }
+    } else {
+        res.json(null)
     }
 }
 
@@ -59,8 +66,16 @@ exports.Login = async (req, res) => {
         const token = jwt.sign({ id: user.id, username: user.username }, process.env.ACCESS_TOKEN_SECRET)
         res.cookie('accsessToken', token, {
             httpOnly: true,
+            maxAge: 2 * 24 * 60 * 60 * 1000
         }).status(200).json({ username: user.username, id: user.id, avatar: user.avatar });
     } catch (error) {
         res.status(500).json(error)
     }
 }
+
+exports.Logout = async (req, res) => {
+    await res.clearCookie("accsessToken", {
+        httpOnly: true
+    }).status(200).json("User has been logged out")
+}
+
