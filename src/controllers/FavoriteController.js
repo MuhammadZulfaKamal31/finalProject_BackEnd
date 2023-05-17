@@ -40,11 +40,13 @@ exports.unFavorite = async (req, res) => {
 exports.getFavorite = async (req, res) => {
     const mediaId = req.query.mediaId;
     const mediaType = req.query.mediaType;
+    const userId = req.userId;
     try {
         const favorite = await Favorite.findAll({
             where: {
                 media_id: mediaId,
-                media_type: mediaType
+                media_type: mediaType,
+                userId: userId
             }
         });
         return res.status(200).json(favorite);
