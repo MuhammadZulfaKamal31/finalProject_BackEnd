@@ -37,12 +37,12 @@ exports.unFavorite = async (req, res) => {
     }
 }
 
-exports.getFavorite = async (req, res) => {
+exports.getSingleFavorite = async (req, res) => {
     const mediaId = req.query.mediaId;
     const mediaType = req.query.mediaType;
     const userId = req.userId;
     try {
-        const favorite = await Favorite.findAll({
+        const favorite = await Favorite.findOne({
             where: {
                 media_id: mediaId,
                 media_type: mediaType,
@@ -55,3 +55,20 @@ exports.getFavorite = async (req, res) => {
         return res.status(500).json(error);
     }
 }
+
+
+exports.getAllFavorite = async (req, res) => {
+    const userId = req.userId;
+    try {
+        const favorite = await Favorite.findAll({
+            where: {
+                userId: userId
+            }
+        });
+        return res.status(200).json(favorite);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json(error);
+    }
+}
+
