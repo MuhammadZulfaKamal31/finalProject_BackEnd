@@ -4,9 +4,6 @@ const cors = require('cors');
 const dotenv = require('dotenv')
 const cookieParser = require('cookie-parser')
 const db = require('../src/config/Database')
-const ReplyComment = require('../src/model/ReplyComment')
-const Favorite = require('../src/model/Favorite')
-const User = require('./model/User')
 
 
 const router = require('./routes/router');
