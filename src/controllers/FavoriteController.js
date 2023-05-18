@@ -21,8 +21,8 @@ exports.addFavorite = async (req, res) => {
 }
 
 exports.unFavorite = async (req, res) => {
-    const mediaId = req.params.id;
-    const mediaType = req.params.type;
+    const mediaId = req.params.mediaId;
+    const mediaType = req.params.mediaType;
     const userId = req.userId;
     try {
         const favorite = await Favorite.findOne({ where: { media_id: mediaId, media_type: mediaType, userId: userId } });
@@ -38,8 +38,8 @@ exports.unFavorite = async (req, res) => {
 }
 
 exports.getSingleFavorite = async (req, res) => {
-    const mediaId = req.query.mediaId;
-    const mediaType = req.query.mediaType;
+    const mediaId = req.params.mediaId;
+    const mediaType = req.params.mediaType;
     const userId = req.userId;
     try {
         const favorite = await Favorite.findOne({

@@ -2,7 +2,7 @@ const express = require('express');
 
 const { getUsers, register, Login, Logout } = require('../controllers/UserController')
 
-const { addFavorite, unFavorite } = require('../controllers/FavoriteController')
+const { addFavorite, unFavorite, getSingleFavorite, getAllFavorite } = require('../controllers/FavoriteController')
 
 
 
@@ -22,7 +22,10 @@ router.post('/comment', verifyToken, postComment)
 router.get('/comment/:media_type/:media_id', verifyToken, getComment)
 router.delete('/comment/:commentId', verifyToken, deleteComment)
 
-router.post('/addfavorite', verifyToken, addFavorite)
+router.post('/favorite', verifyToken, addFavorite)
+router.get('/favorite/:mediaId/:mediaType', verifyToken, getSingleFavorite)
+router.delete('/favorite/:mediaId/:mediaType', verifyToken, unFavorite)
+router.get('/favorite', verifyToken, getAllFavorite)
 
 
 module.exports = router;

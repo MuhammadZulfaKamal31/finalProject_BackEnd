@@ -26,7 +26,7 @@ const Favorite = db.define('favorite', {
         allowNull: false
     },
     vote: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.DECIMAL(2, 1),
         allowNull: false
     }
 }, {
