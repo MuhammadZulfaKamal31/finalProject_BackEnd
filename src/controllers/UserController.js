@@ -3,24 +3,6 @@ const User = require('../model/User.js');
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-//GET
-exports.getUsers = async (req, res) => {
-    const userId = req.userId
-
-    if (userId) {
-
-        try {
-            const users = await User.findByPk(userId, {
-                attributes: ['username', 'avatar', 'id']
-            })
-            res.status(200).json(users)
-        } catch (error) {
-            res.status(500).json(error)
-        }
-    } else {
-        res.json(null)
-    }
-}
 
 //POST
 exports.register = async (req, res) => {

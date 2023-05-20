@@ -28,7 +28,8 @@ exports.getComment = async (req, res) => {
             include: [{
                 model: Users,
                 attributes: ['id', 'username', 'avatar']
-            }]
+            }],
+            order: [["createdAt", "DESC"]],
         })
         res.status(200).json(comment)
     } catch (error) {

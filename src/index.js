@@ -7,6 +7,7 @@ const db = require('../src/config/Database')
 
 
 const router = require('./routes/router');
+const Favorite = require('./model/Favorite');
 //untuk menggunakan .env
 dotenv.config()
 const app = express();
