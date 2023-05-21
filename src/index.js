@@ -14,6 +14,7 @@ const app = express();
 
 
 try {
+    db.sync()
     console.log("Database Connected");
 } catch (error) {
     console.error("Unable to connect to the database:", error);
