@@ -12,7 +12,8 @@ const Favorite = require('./model/Favorite');
 dotenv.config()
 const app = express();
 
-
+//ketika deploy port harus berdasarkan hostingannya
+const port = process.env.PORT || 8800
 try {
     db.sync()
     console.log("Database Connected");
@@ -20,13 +21,15 @@ try {
     console.error("Unable to connect to the database:", error);
 }
 
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 //supaya bisa akses cookienya
 app.use(cookieParser());
+
 app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 
 app.use('/', router);
 
 
-app.listen(8800, () => { console.log('Server Running') });
+app.listen(port, () => { console.log('Server Running ' + port) });
