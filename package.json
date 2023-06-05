@@ -27,7 +27,6 @@
     "dotenv": "latest",
     "express": "latest",
     "jsonwebtoken": "^9.0.0",
-    "mysql2": "^3.2.3",
     "pg": "^8.10.0",
     "sequelize": "^6.31.0"
   }

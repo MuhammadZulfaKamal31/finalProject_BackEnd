@@ -15,7 +15,7 @@ const app = express();
 //ketika deploy port harus berdasarkan hostingannya
 const port = process.env.PORT_DB || 8800
 try {
-    db.sync({ force: true })
+    db.sync()
     console.log("Database Connected");
 } catch (error) {
     console.error("Unable to connect to the database:", error);
