@@ -3,9 +3,9 @@ const dotenv = require("dotenv")
 dotenv.config({ path: "./.env" })
 
 const db = new Sequelize("crud_db", 'postgres', 'Agustus@31', {
-    host: process.env.HOST_DB,
+    host: 'localhost',
     dialect: 'postgres',
-    port: process.env.PORT_DB
+    port: 5432
 });
 
 module.exports = db;
