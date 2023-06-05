@@ -1,6 +1,6 @@
 const { Sequelize } = require("sequelize");
 const dotenv = require("dotenv")
-dotenv.config({ path: "" })
+dotenv.config({ path: "./env" })
 
 //set up deploy di railway agar bisa terhubung di database dan portnya harus sama di railway
 const db = new Sequelize(process.env.NAME_DB, process.env.USER_DB, process.env.PASSWORD_DB, {
