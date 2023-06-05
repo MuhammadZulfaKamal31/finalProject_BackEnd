@@ -13,7 +13,7 @@ dotenv.config()
 const app = express();
 
 //ketika deploy port harus berdasarkan hostingannya
-const port = process.env.PORT || 8800
+const port = process.env.PORT_DB || 8800
 try {
     db.sync()
     console.log("Database Connected");
