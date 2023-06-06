@@ -48,6 +48,8 @@ exports.Login = async (req, res) => {
         const token = jwt.sign({ id: user.id, username: user.username }, process.env.ACCESS_TOKEN_SECRET)
         res.cookie('accsessToken', token, {
             httpOnly: true,
+            secure: true,
+            sameSite: 'none',
             maxAge: 2 * 24 * 60 * 60 * 1000
         }).status(200).json({ username: user.username, id: user.id, avatar: user.avatar });
     } catch (error) {
@@ -57,7 +59,9 @@ exports.Login = async (req, res) => {
 
 exports.Logout = async (req, res) => {
     await res.clearCookie("accsessToken", {
-        httpOnly: true
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none'
     }).status(200).json("User has been logged out")
 }
 
